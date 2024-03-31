@@ -1,102 +1,182 @@
-import { React, Fragment } from "react";
-import { Popover, Transition } from "@headlessui/react";
-import {
-  ArrowPathIcon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-} from "@heroicons/react/24/outline";
+import { React, useContext } from "react";
 
 import { Link } from "react-router-dom";
+import { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { UserContext } from "../../context/userContext";
 
-const solutions = [
-  {
-    name: "HOME",
-    href: "/",
-    icon: ChartPieIcon,
-  },
-  {
-    name: "ABOUT",
-    href: "/about",
-    icon: CursorArrowRaysIcon,
-  },
-  {
-    name: "CONTACT",
-    href: "/contact",
-    icon: FingerPrintIcon,
-  },
-  {
-    name: "BLOG",
-    href: "/blog",
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: "EVENTS",
-    href: "/events",
-    icon: ArrowPathIcon,
-  },
-  {
-    name: "COURSES",
-    href: "/courses",
-    icon: ArrowPathIcon,
-  },
-];
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 export default function NavMobile() {
+  const { user, handleLogout } = useContext(UserContext);
+
   return (
-    <Popover className="relative">
-      <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="#fff"
-            className="w-8 h-8"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 9h16.5m-16.5 6.75h16.5"
-            />
-          </svg>
-        </span>
-      </Popover.Button>
+    <Menu as="div" className="relative inline-block text-left">
+      <div className="flex gap-2 items-center pr-[1rem]">
+        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-gray-900  ring-inset ring-gray-300 ">
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="#fff"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 9h16.5m-16.5 6.75h16.5"
+              />
+            </svg>
+          </span>
+        </Menu.Button>
+      </div>
 
       <Transition
         as={Fragment}
-        enter="transition ease-out duration-200"
-        enterFrom="opacity-0 translate-y-1"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition ease-in duration-150"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 translate-y-1"
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
       >
-        <Popover.Panel className="absolute left-0 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
-          <div className="w-screen max-w-md flex-auto overflow-hidden rounded-2xl bg-white/90 backdrop-opacity-10	 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-            <div className="p-4">
-              {solutions.map((item) => (
-                <div
-                  key={item.name}
-                  className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50"
-                >
-                  <div>
-                    <Link
-                      to={item.href}
-                      className="font-semibold text-gray-900"
-                    >
-                      {item.name}
-                      <span className="absolute inset-0" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
+        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-[1rem] grid gap-[2rem]">
+            <div className="grid gap-2">
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    to="/"
+                    className={classNames(
+                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      "block px-4 py-2 text-sm"
+                    )}
+                  >
+                    HOME
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    to="/about"
+                    className={classNames(
+                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      "block px-4 py-2 text-sm"
+                    )}
+                  >
+                    ABOUT
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    to="/courses"
+                    className={classNames(
+                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      "block px-4 py-2 text-sm"
+                    )}
+                  >
+                    COURSES
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    to="/blog"
+                    className={classNames(
+                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      "block w-full px-4 py-2 text-left text-sm"
+                    )}
+                  >
+                    BLOGS
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    to="/events"
+                    className={classNames(
+                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      "block w-full px-4 py-2 text-left text-sm"
+                    )}
+                  >
+                    EVENTS
+                  </Link>
+                )}
+              </Menu.Item>
             </div>
+
+            {!user ? (
+              <div className="grid gap-2">
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/register"
+                      className={classNames(
+                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        "block w-full px-4 py-2 text-left text-md"
+                      )}
+                    >
+                      SIGNUP
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/login"
+                      className={classNames(
+                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        "block w-full px-4 py-2 text-left text-md"
+                      )}
+                    >
+                      LOGIN
+                    </Link>
+                  )}
+                </Menu.Item>
+              </div>
+            ) : (
+              <div className="grid gap-2">
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/"
+                      className={classNames(
+                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        "block px-4 py-2 text-md"
+                      )}
+                    >
+                      {user.email}
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      onClick={handleLogout}
+                      className={classNames(
+                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        "block w-full px-4 py-2 text-left text-sm"
+                      )}
+                    >
+                      SIGN OUT
+                    </button>
+                  )}
+                </Menu.Item>
+              </div>
+            )}
           </div>
-        </Popover.Panel>
+        </Menu.Items>
       </Transition>
-    </Popover>
+    </Menu>
   );
 }
