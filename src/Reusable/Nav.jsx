@@ -70,7 +70,7 @@ const Navigation = () => {
               </li>
               <li>
                 <NavLink
-                  to="events"
+                  to="blog"
                   reloadDocument
                   className="Dm-body text-black text-[13px] poppins"
                 >
