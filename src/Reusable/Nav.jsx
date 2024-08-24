@@ -6,6 +6,7 @@ import { UserContext } from "../../context/userContext";
 import axios from "axios";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -20,45 +21,52 @@ const Navigation = () => {
       <div className="container shadow-md z-20 bg-light w-[90%] sm:w-[85%] md:w-[87%] xl:w-[85%] 2xl:w-[85%] py-3 mx-auto sm:px-[1rem] md:px-[1.4rem] 2xl:px-[2rem] rounded-lg fixed mt-4 left-1/2 transform -translate-x-1/2">
         <div className="flex items-center justify-between w-full nav-desktop mx-auto ">
           <div>
-            <Link to="/">
+            <NavLink to="/" reloadDocument>
               <img
                 className="logo lg:w-full md:w-full sm:w-full"
                 src={Logo}
                 alt="Artful PotteryPro"
               />
-            </Link>
+            </NavLink>
           </div>
 
           <div>
             <ul className="flex gap-[3.4rem]">
               <li>
-                <Link to="/" className="Dm-body text-black text-[13px] poppins">
+                <NavLink
+                  to="/"
+                  reloadDocument
+                  className="Dm-body text-black text-[13px] poppins"
+                >
                   HOME
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/about"
+                  reloadDocument
                   className="Dm-body text-black text-[13px] poppins"
                 >
                   ABOUT
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/courses"
+                  reloadDocument
                   className="Dm-body text-black text-[13px] poppins"
                 >
                   COURSES
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="events"
+                  reloadDocument
                   className="Dm-body text-black text-[13px] poppins"
                 >
                   EVENTS
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -73,6 +81,7 @@ const Navigation = () => {
                       <li>
                         <Link
                           to="/events"
+                          reloadDocument
                           className="Dm-body text-white text-[12px] font-medium"
                         >
                           EVENTS
@@ -81,6 +90,7 @@ const Navigation = () => {
                       <li>
                         <Link
                           to="/blog"
+                          reloadDocument
                           className="Dm-body text-white text-[12px] font-medium"
                         >
                           BLOG
@@ -165,6 +175,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/login"
+                    reloadDocument
                     className="Dm-body main-button text-black text-[12px] poppins light-btn"
                   >
                     LOGIN
@@ -173,6 +184,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/register"
+                    reloadDocument
                     className="Dm-body main-button bg-brown text-white poppins text-[12px] poppins shadow-sm"
                   >
                     SIGN UP
@@ -186,7 +198,7 @@ const Navigation = () => {
         <div className="nav-mobile px-[1rem] sm:px-[1rem] md:px-[2rem]">
           <div className="flex justify-between items-center">
             <div>
-              <Link to="/">
+              <Link to="/" reloadDocument>
                 <img
                   className="logo-mobile"
                   src={Logo}

@@ -52,6 +52,7 @@ export default function NavMobile() {
                 {({ active }) => (
                   <Link
                     to="/"
+                    reloadDocument
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       "block px-4 py-2 text-sm"
@@ -65,6 +66,7 @@ export default function NavMobile() {
                 {({ active }) => (
                   <Link
                     to="/about"
+                    reloadDocument
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       "block px-4 py-2 text-sm"
@@ -78,6 +80,7 @@ export default function NavMobile() {
                 {({ active }) => (
                   <Link
                     to="/courses"
+                    reloadDocument
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       "block px-4 py-2 text-sm"
@@ -91,6 +94,7 @@ export default function NavMobile() {
                 {({ active }) => (
                   <Link
                     to="/blog"
+                    reloadDocument
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       "block w-full px-4 py-2 text-left text-sm"
@@ -104,6 +108,7 @@ export default function NavMobile() {
                 {({ active }) => (
                   <Link
                     to="/events"
+                    reloadDocument
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       "block w-full px-4 py-2 text-left text-sm"
@@ -121,6 +126,7 @@ export default function NavMobile() {
                   {({ active }) => (
                     <Link
                       to="/register"
+                      reloadDocument
                       className={classNames(
                         active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                         "block w-full px-4 py-2 text-left text-md"
@@ -134,6 +140,7 @@ export default function NavMobile() {
                   {({ active }) => (
                     <Link
                       to="/login"
+                      reloadDocument
                       className={classNames(
                         active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                         "block w-full px-4 py-2 text-left text-md"
@@ -150,6 +157,7 @@ export default function NavMobile() {
                   {({ active }) => (
                     <Link
                       to="/"
+                      reloadDocument
                       className={classNames(
                         active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                         "block px-4 py-2 text-md"
