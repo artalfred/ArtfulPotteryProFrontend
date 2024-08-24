@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import Logo from "../assets/Logo/ArtfulPotteryPro.png";
+import Logo from "../assets/Logo/logo.png";
 import NavMobile from "./NavMobile";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import axios from "axios";
 import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -16,38 +16,9 @@ const Navigation = () => {
   }
 
   return (
-    <nav className="nav w-full sm:px-[1rem] md:px-[3rem] 2xl:px-[6rem] bg-transparent absolute mt-2">
-      <div className="container mx-auto">
+    <nav className="nav relative">
+      <div className="container shadow-md z-20 bg-light w-[90%] sm:w-[85%] md:w-[87%] xl:w-[85%] 2xl:w-[85%] py-3 mx-auto sm:px-[1rem] md:px-[1.4rem] 2xl:px-[2rem] rounded-lg fixed mt-4 left-1/2 transform -translate-x-1/2">
         <div className="flex items-center justify-between w-full nav-desktop mx-auto ">
-          <div>
-            <ul className="flex gap-[4rem]">
-              <li>
-                <Link
-                  to="/"
-                  className="Dm-body text-white text-[12px] font-medium"
-                >
-                  HOME
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  className="Dm-body text-white text-[12px] font-medium"
-                >
-                  ABOUT
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/courses"
-                  className="Dm-body text-white text-[12px] font-medium"
-                >
-                  COURSES
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           <div>
             <Link to="/">
               <img
@@ -56,6 +27,40 @@ const Navigation = () => {
                 alt="Artful PotteryPro"
               />
             </Link>
+          </div>
+
+          <div>
+            <ul className="flex gap-[3.4rem]">
+              <li>
+                <Link to="/" className="Dm-body text-black text-[13px] poppins">
+                  HOME
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="Dm-body text-black text-[13px] poppins"
+                >
+                  ABOUT
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/courses"
+                  className="Dm-body text-black text-[13px] poppins"
+                >
+                  COURSES
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="events"
+                  className="Dm-body text-black text-[13px] poppins"
+                >
+                  EVENTS
+                </Link>
+              </li>
+            </ul>
           </div>
 
           <div>
@@ -156,29 +161,21 @@ const Navigation = () => {
                 </Menu>
               </div>
             ) : (
-              <ul className="flex items-center gap-[4rem]">
+              <ul className="flex items-center gap-[1rem]">
                 <li>
                   <Link
-                    to="events"
-                    className="Dm-body text-white text-[12px] font-medium"
+                    to="/login"
+                    className="Dm-body main-button text-black text-[12px] poppins light-btn"
                   >
-                    EVENTS
+                    LOGIN
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/register"
-                    className="Dm-body text-white text-[12px] font-medium"
+                    className="Dm-body main-button bg-brown text-white poppins text-[12px] poppins shadow-sm"
                   >
                     SIGN UP
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/login"
-                    className="Dm-body text-white text-[12px] font-medium underline underline-offset-8"
-                  >
-                    LOGIN
                   </Link>
                 </li>
               </ul>
@@ -186,7 +183,7 @@ const Navigation = () => {
           </div>
         </div>
 
-        <div className="nav-mobile px-[2rem] mt-4">
+        <div className="nav-mobile px-[1rem] sm:px-[1rem] md:px-[2rem]">
           <div className="flex justify-between items-center">
             <div>
               <Link to="/">

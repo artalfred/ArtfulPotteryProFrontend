@@ -14,7 +14,7 @@ export default function Advance() {
         <HeroSection
           Title={"Advanced Ceramic Courses for Experienced Artists"}
           Description={
-            " Explore intricate techniques, experimental glazing, and professional development. Join us to unlock new realms of creativity."
+            "Explore intricate techniques, experimental glazing, and professional development. Join us to unlock new realms of creativity."
           }
           btnName={!!user ? "RESERVE YOUR SPOT" : "ENROLL NOW"}
           btnBackground={"light brown-dark"}

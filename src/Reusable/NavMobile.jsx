@@ -16,14 +16,14 @@ export default function NavMobile() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div className="flex gap-2 items-center">
-        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-gray-900  ring-inset ring-gray-300 ">
+        <Menu.Button className="inline-flex w-full justify-center rounded-full border gap-x-1.5 px-3 py-3 text-sm font-semibold text-gray-900">
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
-              stroke="#fff"
+              stroke="#543115"
               className="w-8 h-8"
             >
               <path
