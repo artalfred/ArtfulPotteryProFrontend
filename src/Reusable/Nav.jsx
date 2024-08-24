@@ -68,6 +68,15 @@ const Navigation = () => {
                   EVENTS
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="events"
+                  reloadDocument
+                  className="Dm-body text-black text-[13px] poppins"
+                >
+                  BLOGS
+                </NavLink>
+              </li>
             </ul>
           </div>
 
