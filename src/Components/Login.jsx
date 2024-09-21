@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { UserContext } from "../../context/userContext";
 import NotFound from "./NotFound";
+import { GoogleLogin } from "@react-oauth/google";
 
 function Login() {
   const navigate = useNavigate();
@@ -41,65 +42,83 @@ function Login() {
   };
 
   return (
-    <HeroContainerPage backgroundImage={Registration}>
-      {!!user ? (
-        <NotFound />
-      ) : (
-        <>
-          <Form className="md:mx-[4rem] sm:mx-[1rem] mx-[1rem] form bg-white py-[2rem] rounded-lg 2xl:w-3/6 lg:3/6 md:4/6 sm:full w-full 2xl:px-[12rem] ld:px-[12rem] md:px-[4rem] sm:px-[1rem] px-[1rem]">
-            <div>
-              <Title className="text-3xl">Log In</Title>
-              <p className="text-center text-white mt-3">
-                Get started by creating a 100% free knowledge Base for your
-                passion
-              </p>
-            </div>
-
-            <div className="container mx-auto mt-4">
-              <form onSubmit={loginUser} className="grid gap-2">
-                <input
-                  type="text"
-                  className="py-3 rounded-full px-6 mt-3 w-full"
-                  placeholder="Email"
-                  value={data.email}
-                  onChange={(e) => setData({ ...data, email: e.target.value })}
-                  required
-                />
-
-                <input
-                  type="text"
-                  className="py-3 rounded-full px-6 mt-3 w-full"
-                  placeholder="Password"
-                  value={data.password}
-                  onChange={(e) =>
-                    setData({ ...data, password: e.target.value })
-                  }
-                  required
-                />
-
-                <div className="flex justify-center mt-3">
-                  <SubmitButton type="submit" className="btnDark">
-                    Log In
-                  </SubmitButton>
-                </div>
-
+    <HeroImage>
+      <HeroContainerPage>
+        {!!user ? (
+          <NotFound />
+        ) : (
+          <>
+            <Form className="md:mx-[4rem] sm:mx-[1rem] mx-[1rem] form bg-white py-[2rem] rounded-lg 2xl:w-3/6 lg:3/6 md:4/6 sm:full w-full 2xl:px-[12rem] ld:px-[12rem] md:px-[4rem] sm:px-[1rem] px-[1rem]">
+              <div>
+                <Title className="text-3xl">Log In</Title>
                 <p className="text-center text-white mt-3">
-                  Don't have an account yet?{" "}
-                  <Link
-                    to={"/register"}
-                    className="underline underline-offset-4"
-                  >
-                    Sign up
-                  </Link>
+                  Get started by creating a 100% free knowledge Base for your
+                  passion
                 </p>
-              </form>
-            </div>
-          </Form>
-        </>
-      )}
-    </HeroContainerPage>
+              </div>
+
+              <div className="container mx-auto mt-4">
+                <form onSubmit={loginUser} className="grid gap-2">
+                  <input
+                    type="text"
+                    className="py-3 rounded-full px-6 mt-3 w-full"
+                    placeholder="Email"
+                    value={data.email}
+                    onChange={(e) =>
+                      setData({ ...data, email: e.target.value })
+                    }
+                    required
+                  />
+
+                  <input
+                    type="text"
+                    className="py-3 rounded-full px-6 mt-3 w-full"
+                    placeholder="Password"
+                    value={data.password}
+                    onChange={(e) =>
+                      setData({ ...data, password: e.target.value })
+                    }
+                    required
+                  />
+
+                  <div className="flex justify-center mt-3">
+                    <SubmitButton type="submit" className="btnDark">
+                      Log In
+                    </SubmitButton>
+                  </div>
+
+                  <p className="text-center text-white mt-3">
+                    Don't have an account yet?{" "}
+                    <Link
+                      to={"/register"}
+                      className="underline underline-offset-4"
+                    >
+                      Sign up
+                    </Link>
+                  </p>
+                </form>
+                {/* <GoogleLogin
+                  onSuccess={(credentialResponse) => {
+                    console.log(credentialResponse);
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                /> */}
+              </div>
+            </Form>
+          </>
+        )}
+      </HeroContainerPage>
+    </HeroImage>
   );
 }
+
+const HeroImage = styled.div`
+  background-image: url(${Registration});
+  background-position: no-repeat;
+  background-position: center;
+`;
 
 const Form = styled.div`
   box-shadow: rgb(2, 12, 27) 0px 10px 30px -15px;
