@@ -22,7 +22,7 @@ import Confirmation from "./Components/Confirmation";
 import { ScrollRestoration } from "react-router-dom";
 
 axios.defaults.baseURL = "https://potterypro.onrender.com";
-// axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
